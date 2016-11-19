@@ -1,0 +1,10 @@
+#do_begin
+#do_build
+#do_check
+#do_clean
+#do_download
+#do_end
+#do_install
+#do_strip
+#do_unpack
+#do_verify
