@@ -1,0 +1,127 @@
+'.source.habitat':
+  'pkg_name':
+    'prefix': 'pkgn'
+    'body': 'pkg_name=${1:package_name}\n'
+  'pkg_name (short)':
+    'prefix': 'pn'
+    'body': 'pkg_name=${1:package_name}\n'
+  'pkg_origin':
+    'prefix': 'pkgo'
+    'body': 'pkg_origin=${1:origin_name}\n'
+  'pkg_origin (short)':
+    'prefix': 'po'
+    'body': 'pkg_origin=${1:origin_name}\n'
+  'pkg_version':
+    'prefix': 'pkgv'
+    'body': 'pkg_version=${1:0}.${2:0}.${3:0}\n'
+  'pkg_version (short)':
+    'prefix': 'pv'
+    'body': 'pkg_version=${1:0}.${2:0}.${3:0}\n'
+  'pkg_maintainer':
+    'prefix': 'pkgm'
+    'body': 'pkg_maintainer="${1:The Habitat Maintainers} ${2:<humans@habitat.sh>}"\n'
+  'pkg_maintainer (short)':
+    'prefix': 'pm'
+    'body': 'pkg_maintainer="${1:The Habitat Maintainers} ${2:<humans@habitat.sh>}"\n'
+  'pkg_license':
+    'prefix': 'pkgl'
+    'body': 'pkg_license=(\'${1:Apache-2.0}\')\n'
+  'pkg_license (short)':
+    'prefix': 'pl'
+    'body': 'pkg_license=(\'${1:Apache-2.0}\')\n'
+  'pkg_source':
+    'prefix': 'pkgs'
+    'body': 'pkg_source=${1:http://downloads.sourceforge.net/project/}${${2:pkg_version}}/${${3:pkg_name}}-${${4:pkg_version}}.tar.gz\n'
+  'pkg_source (short)':
+    'prefix': 'ps'
+    'body': 'pkg_source=${1:http://downloads.sourceforge.net/project/}${${2:pkg_version}}/${${3:pkg_name}}-${${4:pkg_version}}.tar.gz\n'
+  'pkg_filename':
+    'prefix': 'pkgf'
+    'body': 'pkg_filename=${${1:pkg_name}}-${${2:pkg_version}}${3:.tar.gz}\n'
+  'pkg_filename (short)':
+    'prefix': 'pf'
+    'body': 'pkg_filename=${${1:pkg_name}}-${${2:pkg_version}}${3:.tar.gz}\n'
+  'pkg_shasum':
+    'prefix': 'pkgsh'
+    'body': 'pkg_shasum=${1:36658cb768a54c1d4dec43c3116c27ed893e88b02ecfcb44f2166f9c0b7f2a0d}\n'
+  'pkg_shasum (short)':
+    'prefix': 'psh'
+    'body': 'pkg_shasum=${1:36658cb768a54c1d4dec43c3116c27ed893e88b02ecfcb44f2166f9c0b7f2a0d}\n'
+  'pkg_deps':
+    'prefix': 'pkgd'
+    'body': "pkg_deps=(\n\t${1:core/glibc}\n\t${2}\n)\n"
+  'pkg_deps (short)':
+    'prefix': 'pd'
+    'body': "pkg_deps=(\n\t${1:core/glibc}\n\t${2}\n)\n"
+  'pkg_build_deps':
+    'prefix': 'pkgb'
+    'body': "pkg_build_deps=(\n\t${1:core/gcc}\n\t${2}\n)\n"
+  'pkg_build_deps (short)':
+    'prefix': 'pb'
+    'body': "pkg_build_deps=(\n\t${1:core/gcc}\n\t${2}\n)\n"
+  'pkg_lib_dirs':
+    'prefix': 'pkglib'
+    'body': 'pkg_lib_dirs=(${1:lib})\n'
+  'pkg_lib_dirs (short)':
+    'prefix': 'pld'
+    'body': 'pkg_lib_dirs=(${1:lib})\n'
+  'pkg_include_dirs':
+    'prefix': 'pkgi'
+    'body': 'pkg_include_dirs=(${1:include})\n'
+  'pkg_include_dirs (short)':
+    'prefix': 'pid'
+    'body': 'pkg_include_dirs=(${1:include})\n'
+  'pkg_bin_dirs':
+    'prefix': 'pkgbin'
+    'body': 'pkg_bin_dirs=(${1:bin})\n'
+  'pkg_bin_dirs (short)':
+    'prefix': 'pbi'
+    'body': 'pkg_bin_dirs=(${1:bin})\n'
+  'pkg_pconfig_dirs':
+    'prefix': 'pkgp'
+    'body': 'pkg_pconfig_dirs=(${1:lib/pkgconfig})\n'
+  'pkg_pconfig_dirs (short)':
+    'prefix': 'ppd'
+    'body': 'pkg_pconfig_dirs=(${1:lib/pkgconfig})\n'
+  'pkg_svc_run':
+    'prefix': 'pkgsr'
+    'body': 'pkg_svc_run="${1:bin/haproxy} ${2:-f} ${3:$pkg_svc_config_path/haproxy.conf}"\n'
+  'pkg_svc_run (short)':
+    'prefix': 'psr'
+    'body': 'pkg_svc_run="${1:bin/haproxy} ${2:-f} ${3:$pkg_svc_config_path/haproxy.conf}"\n'
+  'pkg_expose':
+    'prefix': 'pkge'
+    'body': 'pkg_expose:(${1:80} ${2:443})\n'
+  'pkg_expose (short)':
+    'prefix': 'pe'
+    'body': 'pkg_expose:(${1:80} ${2:443})\n'
+  'pkg_interpreters':
+    'prefix': 'pkgint'
+    'body': 'pkg_interpreters=(${1:bin/bash})\n'
+  'pkg_interpreters (short)':
+    'prefix': 'pin'
+    'body': 'pkg_interpreters=(${1:bin/bash})\n'
+  'pkg_svc_user':
+    'prefix': 'pkgsu'
+    'body': 'pkg_svc_user=${1:hab}\n'
+  'pkg_svc_user':
+    'prefix': 'psu'
+    'body': 'pkg_svc_user=${1:hab}\n'
+  'pkg_svc_group':
+    'prefix': 'pkgsg'
+    'body': 'pkg_svc_group=${1:\$pkg_svc_user}\n'
+  'pkg_svc_group (short)':
+    'prefix': 'psg'
+    'body': 'pkg_svc_group=${1:\$pkg_svc_user}\n'
+  'pkg_description':
+    'prefix': 'pkgde'
+    'body': 'pkg_description="${1:This is the package for foo library!}"\n'
+  'pkg_description (short)':
+    'prefix': 'pde'
+    'body': 'pkg_description="${1:This is the package for foo library!}"\n'
+  'pkg_upstream_url':
+    'prefix': 'pkgup'
+    'body': 'pkg_upstream_url=${1:https://github.com/myrepo}'
+  'pkg_upstream_url':
+    'prefix': 'puu'
+    'body': 'pkg_upstream_url=${1:https://github.com/myrepo}'
