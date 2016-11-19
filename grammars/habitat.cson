@@ -1,0 +1,18 @@
+'scopeName': 'source.shell.habitat'
+'name': 'Habitat'
+'fileTypes': [
+  'plan.sh'
+]
+'patterns': [
+  {
+    'match': '(^|;)\\W*(control|impact|title|desc)\\b'
+    'name': 'keyword.habitat'
+  }
+  {
+    'match': '(^|;)\\W*(its)\\b'
+    'name': 'keyword.habitat'
+  }
+  {
+    'include': 'source.shell'
+  }
+]
