@@ -1,0 +1,24 @@
+{
+  "name": "language-habitat",
+  "main": "./lib/language-habitat",
+  "version": "0.0.0",
+  "description": "Habitat snippet and grammar support",
+  "keywords": [
+    "language",
+    "grammar",
+    "habitat",
+    "bash",
+    "shell",
+    "chef"
+  ],
+  "activationCommands": {
+    "atom-workspace": "language-habitat:toggle"
+  },
+  "repository": "https://github.com/habitat/atom-habitat",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "readme": "# Language - Habitat\n\nHabitat snippet and Grammar Support",
+  "readmeFilename": "README.md"
+}
