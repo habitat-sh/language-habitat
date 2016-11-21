@@ -1,10 +1,34 @@
-#do_begin
-#do_build
-#do_check
+'.source.habitat':
+  'do_begin':
+    'prefix': 'do_begin'
+    'body': '# There is no default implementation of this callback. You can use it to execute\n# any arbitrary commands before anything else happens.\n# @see https://www.habitat.sh/docs/reference/plan-syntax/#callbacks.sh\ndo_begin() {\n    ${1:# your implementation}\n}'
+  'do_build':
+    'prefix': 'do_build'
+    'body': '# Below is the default behavior for this callback. Anything you put in this\n# callback will override this behavior. If you want to use default behavior\n# delete this callback from your plan.\n# @see https://www.habitat.sh/docs/reference/plan-syntax/#callbacks.sh\ndo_build() {\n    ${1:./configure --prefix=$pkg_prefix\n    make}\n}'
+  'do_check':
+    'prefix': 'do_check'
+    'body': '# The default implementation runs nothing during post-compile. An example \n# of a command you might use in this callback is make test. To use this \n#callback, two conditions must be true.\n# A) do_check() function has been declared, \n# B) DO_CHECK environment variable exists and set to true, env DO_CHECK=true.\n# @see https://www.habitat.sh/docs/reference/plan-syntax/#callbacks.sh\ndo_check() {\n    ${1:# your implementation}\n}'
+
 #do_clean
-#do_download
-#do_end
-#do_install
-#do_strip
-#do_unpack
-#do_verify
+  'do_clean':
+    'prefix': 'do_clean'
+    'body': '# Below is the default behavior for this callback. Anything you put in this\n# callback will override this behavior. If you want to use default behavior\n# delete this callback from your plan.\n# @see https://www.habitat.sh/docs/reference/plan-syntax/#callbacks.sh\ndo_clean() {\n    ${1:build_line "Clean the cache"\n    rm -rf "$HAB_CACHE_SRC_PATH/$pkg_dirname"\n    return 0}\n}'
+  'do_download':
+    'prefix': 'do_download'
+    'body': '# Below is the default behavior for this callback. Anything you put in this\n# callback will override this behavior. If you want to use default behavior\n# delete this callback from your plan.\n# @see https://www.habitat.sh/docs/reference/plan-syntax/#callbacks.sh\ndo_download() {\n    ${1:download_file $pkg_source $pkg_filename $pkg_shasum}\n}'
+  'do_end':
+    'prefix': 'do_end'
+    'body': '# There is no default implementation of this callback. This is called after\n# the package has been built and installed. You can use this callback to\n# remove any temporary files or perform other post-install clean-up actions.\n# @see https://www.habitat.sh/docs/reference/plan-syntax/#callbacks.sh\ndo_end() {\n    ${1:# your implementation}\n}'
+  'do_install':
+    'prefix': 'do_install'
+    'body': '# Below is the default behavior for this callback. Anything you put in this\n# callback will override this behavior. If you want to use default behavior\n# delete this callback from your plan.\n# @see https://www.habitat.sh/docs/reference/plan-syntax/#callbacks.sh\ndo_install() {\n    ${1:make install\n    return $?}\n}'
+
+  'do_strip':
+    'prefix': 'do_strip'
+    'body': '# Below is the default behavior for this callback. Anything you put in this\n# callback will override this behavior. If you want to use default behavior\n# delete this callback from your plan.\n# @see https://www.habitat.sh/docs/reference/plan-syntax/#callbacks.sh\ndo_strip() {\n    ${1:build_line "Stripping unneeded symbols from binaries and libraries"\n    find $pkg_prefix -type f -perm -u+w -print0 2> /dev/null \\\\\n      | while read -rd \'\' f; do\n        case "$(file -bi "$f")" in\n        *application/x-executable*) strip --strip-all "$f";;\n        *application/x-sharedlib*) strip --strip-unneeded "$f";;\n        *application/x-archive*) strip --strip-debug "$f";;\n        *) continue;;\n        esac\n    done\n    return $?}\n}'
+  'do_unpack':
+    'prefix': 'do_unpack'
+    'body': '# Below is the default behavior for this callback. Anything you put in this\n# callback will override this behavior. If you want to use default behavior\n# delete this callback from your plan.\n# @see https://www.habitat.sh/docs/reference/plan-syntax/#callbacks.sh\ndo_unpack() {\n    ${1:unpack_file $pkg_filename}\n}'
+  'do_verify':
+    'prefix': 'do_verify'
+    'body': '# Below is the default behavior for this callback. Anything you put in this\n# callback will override this behavior. If you want to use default behavior\n# delete this callback from your plan.\n# @see https://www.habitat.sh/docs/reference/plan-syntax/#callbacks.sh\ndo_verify() {\n    ${1:verify_file $pkg_filename $pkg_shasum}\n}'
