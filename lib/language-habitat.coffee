@@ -1,6 +1,10 @@
 LanguageHabitatView = require './language-habitat-view'
 {CompositeDisposable} = require 'atom'
 
+sleep = (ms) ->
+  start = new Date().getTime()
+  continue while new Date().getTime() - start < ms
+
 module.exports = LanguageHabitat =
   languageHabitatView: null
   modalPanel: null

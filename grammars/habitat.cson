@@ -2,6 +2,11 @@
 'name': 'Habitat'
 'fileTypes': [
   'plan.sh'
+  'init'
+  'run'
+  'file_updated'
+  'health_check'
+  'reconfigure'
 ]
 'patterns': [
   {
