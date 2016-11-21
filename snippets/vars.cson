@@ -1,0 +1,46 @@
+'.source.habitat':
+  '$pkg_prefix':
+    'prefix': 'pp$'
+    'body': '$pkg_prefix ${1}'
+  '$pkg_dirname':
+    'prefix': 'pd$'
+    'body': '$pkg_dirname {$1}'
+  '$pkg_svc_path':
+    'prefix': 'psp$'
+    'body': '$pkg_svc_path ${1}'
+  '$pkg_svc_data_path':
+    'prefix': 'psd$'
+    'body': '$pkg_svc_data_path ${1}'
+  '$pkg_svc_files_path':
+    'prefix': 'psf$'
+    'body': '$pkg_svc_files_path ${1}'
+  '$pkg_svc_var_path':
+    'prefix': 'psv$'
+    'body': '$pkg_svc_var_path ${1}'
+  '$pkg_svc_config_path':
+    'prefix': 'psc$'
+    'body': '$pkg_svc_config_path ${1}'
+  '$pkg_svc_static_path':
+    'prefix': 'pss$'
+    'body': '$pkg_svc_static_path ${1}'
+  '$HAB_CACHE_SRC_PATH':
+    'prefix': 'hcs$'
+    'body': '$HAB_CACHE_SRC_PATH ${1}'
+  '$HAB_CACHE_ARTIFACT_PATH':
+    'prefix': 'hca$'
+    'body': '$HAB_CACHE_ARTIFACT_PATH ${1}'
+  '$HAB_PKG_PATH':
+    'prefix': 'hpp$'
+    'body': '$HAB_PKG_PATH$ {1}'
+  '$PLAN_CONTEXT':
+    'prefix': 'pc$'
+    'body': '$PLAN_CONTEXT ${1}'
+  '$CFLAGS':
+    'prefix': 'cf$'
+    'body': '$CFLAGS ${1}'
+  '$LDFLAGS':
+    'prefix': 'ld$'
+    'body': '$LDFLAGS ${1}'
+  '$LD_RUN_PATH':
+    'prefix': 'ldr$'
+    'body': '$LD_RUN_PATH ${1}'
