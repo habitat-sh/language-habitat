@@ -1,0 +1,37 @@
+'.source.habitat':
+  'build_line':
+    'prefix': 'build_line'
+    'body': 'build_line \"${1:Foo has been verified}\"\n'
+  'build_line (short)':
+    'prefix': 'bl'
+    'body': 'build_line \"${1:Foo has been verified}\"\n'
+  'download_file':
+    'prefix': 'download_file'
+    'body': 'download_file ${1:http://a.valid.url/file.tar.gz} ${2:filename.tar.gz} ${3:anoptionalshasumtocheckagainst}\n'
+  'download_file (short)':
+    'prefix': 'df'
+    'body': 'download_file ${1:http://a.valid.url/file.tar.gz} ${2:filename.tar.gz} ${3:anoptionalshasumtocheckagainst}\n'
+  'pkg_path_for':
+    'prefix': 'pkg_path_for'
+    'body': '$(pkg_path_for ${1:core/perl})'
+  'pkg_path_for (short)':
+    'prefix': 'ppf'
+    'body': '$(pkg_path_for ${1:core/perl})'
+  'fix_interpreter':
+    'prefix': 'fix_interpreter'
+    'body': 'fix_interpreter ${1:target/file/or/files} ${2:origin/package} ${3:interpreter/path}\n'
+  'fix_interpreter (short)':
+    'prefix': 'fi'
+    'body': 'fix_interpreter ${1:target/file/or/files} ${2:origin/package} ${3:interpreter/path}\n'
+  'pkg_interpreter_for':
+    'prefix': 'pkg_interpreter_for'
+    'body': 'pkg_interpreter_for ${1:origin/package} ${2:interpreter/path}\n'
+  'pkg_interpreter_for (short)':
+    'prefix': 'pif'
+    'body': 'pkg_interpreter_for ${1:origin/package} ${2:interpreter/path}\n'
+  'exit_with':
+    'prefix': 'exit_with'
+    'body': '"${1:Something bad happened}" ${2:55} #status code\n'
+  'exit_with (short)':
+    'prefix': 'ew'
+    'body': '"${1:Something bad happened}" ${2:55} #status code\n'
