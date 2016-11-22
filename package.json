@@ -14,7 +14,7 @@
   "activationCommands": {
     "atom-workspace": "language-habitat:toggle"
   },
-  "repository": "https://github.com/habitat/atom-habitat",
+  "repository": "https://github.com/habitat/language-habitat",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
