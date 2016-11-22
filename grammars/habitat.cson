@@ -1,4 +1,4 @@
-'scopeName': 'source.shell.habitat'
+'scopeName': 'source.habitat'
 'name': 'Habitat'
 'fileTypes': [
   'plan.sh'
@@ -18,6 +18,6 @@
     'name': 'keyword.habitat'
   }
   {
-    'include': 'source.shell'
+    'include': 'source.shellscript'
   }
 ]

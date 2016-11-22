@@ -1,7 +1,10 @@
+version: "{build}"
+
+platform: x64
+
 ### Project specific config ###
 environment:
   APM_TEST_PACKAGES:
-  ATOM_LINT_WITH_BUNDLED_NODE: "true"
 
   matrix:
   - ATOM_CHANNEL: stable
@@ -15,8 +18,6 @@ branches:
   only:
     - master
 
-version: "{build}"
-platform: x64
 clone_depth: 10
 skip_tags: true
 test: off

@@ -1,62 +1,22 @@
-LanguageHabitat = require '../lib/language-habitat'
-
-# Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
-#
-# To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
-# or `fdescribe`). Remove the `f` to unfocus the block.
-
-describe "LanguageHabitat", ->
-  [workspaceElement, activationPromise] = []
+describe "language-habitat grammar", ->
+  grammar = null
 
   beforeEach ->
-    workspaceElement = atom.views.getView(atom.workspace)
-    activationPromise = atom.packages.activatePackage('language-habitat')
+    waitsForPromise ->
+      atom.packages.activatePackage("language-habitat")
 
-  describe "when the language-habitat:toggle event is triggered", ->
-    it "hides and shows the modal panel", ->
-      # Before the activation event the view is not on the DOM, and no panel
-      # has been created
-      expect(workspaceElement.querySelector('.language-habitat')).not.toExist()
+    runs ->
+      grammar = atom.grammars.grammarForScopeName("source.habitat")
 
-      # This is an activation event, triggering it will cause the package to be
-      # activated.
-      atom.commands.dispatch workspaceElement, 'language-habitat:toggle'
+  describe "LanguageHabitatView", ->
 
-      waitsForPromise ->
-        activationPromise
+    it "has one valid test", ->
+      expect("life").toBe "life"
 
-      runs ->
-        expect(workspaceElement.querySelector('.language-habitat')).toExist()
+    it "parses the grammar", ->
+      expect(grammar).toBeTruthy()
+      expect(grammar.scopeName).toBe "source.habitat"
 
-        languageHabitatElement = workspaceElement.querySelector('.language-habitat')
-        expect(languageHabitatElement).toExist()
-
-        languageHabitatPanel = atom.workspace.panelForItem(languageHabitatElement)
-        expect(languageHabitatPanel.isVisible()).toBe true
-        atom.commands.dispatch workspaceElement, 'language-habitat:toggle'
-        expect(languageHabitatPanel.isVisible()).toBe false
-
-    it "hides and shows the view", ->
-      # This test shows you an integration test testing at the view level.
-
-      # Attaching the workspaceElement to the DOM is required to allow the
-      # `toBeVisible()` matchers to work. Anything testing visibility or focus
-      # requires that the workspaceElement is on the DOM. Tests that attach the
-      # workspaceElement to the DOM are generally slower than those off DOM.
-      jasmine.attachToDOM(workspaceElement)
-
-      expect(workspaceElement.querySelector('.language-habitat')).not.toExist()
-
-      # This is an activation event, triggering it causes the package to be
-      # activated.
-      atom.commands.dispatch workspaceElement, 'language-habitat:toggle'
-
-      waitsForPromise ->
-        activationPromise
-
-      runs ->
-        # Now we can test for view visibility
-        languageHabitatElement = workspaceElement.querySelector('.language-habitat')
-        expect(languageHabitatElement).toBeVisible()
-        atom.commands.dispatch workspaceElement, 'language-habitat:toggle'
-        expect(languageHabitatElement).not.toBeVisible()
+    it "tokenizes self", ->
+      {tokens} = grammar.tokenizeLine('self')
+      expect(tokens[0]).toEqual value: 'self', scopes: ['source.habitat']
