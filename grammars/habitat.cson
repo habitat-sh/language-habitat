@@ -18,6 +18,6 @@
     'name': 'keyword.habitat'
   }
   {
-    'include': 'source.shellscript'
+    'include': 'source.shell'
   }
 ]
