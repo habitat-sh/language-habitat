@@ -10,12 +10,20 @@
 ]
 'patterns': [
   {
-    'match': '(^|;)\\W*(control|impact|title|desc)\\b'
-    'name': 'keyword.habitat'
+    'match': 'pkg_(?:name|origin|version|maintainer|license|source|filename|shasum|deps|build_deps|dirname|lib_dirs|include_dirs|distname|bin_dirs|pconfig_dirs|svc_run|expose|interpreters|svc_user|svc_group|description|upstream_url)'
+    'name': 'keyword.habitat.plans'
   }
   {
-    'match': '(^|;)\\W*(its)\\b'
-    'name': 'keyword.habitat'
+    'match': '\\$pkg_(?:prefix|dirname|svc_path|svc_data_path|svc_files_path|svc_var_path|svc_config_path|svc_static_path)'
+    'name': 'keyword.habitat.vars.pkg'
+  }
+  {
+    'match': '\\$HAB_(?:PKG_PATH|CACHE_SRC_PATH|CACHE_ARTIFACT_PATH)'
+    'name': 'keyword.habitat.vars.hab'
+  }
+  {
+    'match': '\\$(?:CFLAGS|LDFLAGS|LD_RUN_PATH)'
+    'name': 'keyword.habitat.vars.flags'
   }
   {
     'include': 'source.shell'
