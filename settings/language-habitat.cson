@@ -1,0 +1,3 @@
+'.source.habitat':
+  'editor':
+    'commentStart': '# '
