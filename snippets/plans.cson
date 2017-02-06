@@ -91,10 +91,10 @@
     'body': 'pkg_svc_run="${1:bin/haproxy} ${2:-f} ${3:\\$pkg_svc_config_path/haproxy.conf}"\n'
   'pkg_expose':
     'prefix': 'pkg_expose'
-    'body': 'pkg_expose:(${1:80} ${2:443})\n'
+    'body': 'pkg_expose=(${1:80} ${2:443})\n'
   'pkg_expose (short)':
     'prefix': 'pe'
-    'body': 'pkg_expose:(${1:80} ${2:443})\n'
+    'body': 'pkg_expose=(${1:80} ${2:443})\n'
   'pkg_interpreters':
     'prefix': 'pkg_interpreters'
     'body': 'pkg_interpreters=(${1:bin/bash})\n'
