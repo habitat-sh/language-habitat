@@ -89,12 +89,18 @@
   'pkg_svc_run (short)':
     'prefix': 'psr'
     'body': 'pkg_svc_run="${1:bin/haproxy} ${2:-f} ${3:\\$pkg_svc_config_path/haproxy.conf}"\n'
-  'pkg_expose':
-    'prefix': 'pkg_expose'
-    'body': 'pkg_expose=(${1:80} ${2:443})\n'
-  'pkg_expose (short)':
+  'pkg_exports':
+    'prefix': 'pkg_exports'
+    'body': "pkg_exports=(\n\t[${1}]=${2}\n\t)"
+  'pkg_exports (short)':
+    'prefix': 'px'
+    'body': "pkg_exports=(\n\t[${1}]=${2}\n)"
+  'pkg_exposes':
+    'prefix': 'pkg_exposes'
+    'body': 'pkg_exposes=(${1})\n'
+  'pkg_exposes (short)':
     'prefix': 'pe'
-    'body': 'pkg_expose=(${1:80} ${2:443})\n'
+    'body': 'pkg_exposes=(${1})\n'
   'pkg_interpreters':
     'prefix': 'pkg_interpreters'
     'body': 'pkg_interpreters=(${1:bin/bash})\n'
