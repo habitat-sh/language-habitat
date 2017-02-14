@@ -57,7 +57,7 @@
     'prefix': 'pkg_build_deps'
     'body': "pkg_build_deps=(\n\t${1:core/gcc}\n\t${2}\n)\n"
   'pkg_build_deps (short)':
-    'prefix': 'pb'
+    'prefix': 'pbd'
     'body': "pkg_build_deps=(\n\t${1:core/gcc}\n\t${2}\n)\n"
   'pkg_lib_dirs':
     'prefix': 'pkg_lib_dirs'
@@ -101,6 +101,18 @@
   'pkg_exposes (short)':
     'prefix': 'pe'
     'body': 'pkg_exposes=(${1})\n'
+  'pkg_binds':
+    'prefix': 'pkg_binds'
+    'body': "pkg_binds=(\n\t[${1}]=\"${2}\"\n\t)"
+  'pkg_binds (short)':
+    'prefix': 'pb'
+    'body': "pkg_binds=(\n\t[${1}]=\"${2}\"\n\t)"
+  'pkg_binds_optional':
+    'prefix': 'pkg_binds_optional'
+    'body': "pkg_binds=(\n\t[${1}]=\"${2}\"\n\t)"
+  'pkg_binds_optional (short)':
+    'prefix': 'pbo'
+    'body': "pkg_binds=(\n\t[${1}]=\"${2}\"\n\t)"
   'pkg_interpreters':
     'prefix': 'pkg_interpreters'
     'body': 'pkg_interpreters=(${1:bin/bash})\n'
