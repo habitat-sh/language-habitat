@@ -57,7 +57,7 @@
     'prefix': 'pkg_build_deps'
     'body': "pkg_build_deps=(\n\t${1:core/gcc}\n\t${2}\n)\n"
   'pkg_build_deps (short)':
-    'prefix': 'pb'
+    'prefix': 'pbd'
     'body': "pkg_build_deps=(\n\t${1:core/gcc}\n\t${2}\n)\n"
   'pkg_lib_dirs':
     'prefix': 'pkg_lib_dirs'
