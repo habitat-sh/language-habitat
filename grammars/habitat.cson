@@ -10,7 +10,7 @@
 ]
 'patterns': [
   {
-    'match': 'pkg_(?:name|origin|version|maintainer|license|source|filename|shasum|deps|build_deps|dirname|lib_dirs|include_dirs|distname|bin_dirs|pconfig_dirs|svc_run|exports|exposes|interpreters|svc_user|svc_group|description|upstream_url)'
+    'match': 'pkg_(?:name|origin|version|maintainer|license|source|filename|shasum|deps|binds|build_deps|dirname|lib_dirs|include_dirs|distname|bin_dirs|pconfig_dirs|svc_run|exports|exposes|interpreters|svc_user|svc_group|description|upstream_url)'
     'name': 'keyword.habitat.plans'
   }
   {
